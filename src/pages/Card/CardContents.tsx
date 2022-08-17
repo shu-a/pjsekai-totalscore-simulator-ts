@@ -153,7 +153,7 @@ export default function CardContents(props: any) {
   ];
   const makeFormSelectlist = makeFormSelectContents.map((c) => {
     return <MakeFormSelect key={c.id} id={props.title + '_' + c.id} sx={c.sx} label={c.label} inputLabel={c.label} value={c.value ? c.value : ''} handler={c.handler}
-      selectList={c.selectList} readonly={c.readonly!} helperText={c.helperText!} selectSx="" />
+      selectList={c.selectList} readonly={c.readonly!} helperText={c.helperText!} selectSx={{}} />
   });
   makeFormSelect.push(makeFormSelectlist);
 
@@ -167,14 +167,14 @@ export default function CardContents(props: any) {
     let id = props.title + "_" + c.id;
     if (formValue[id])
       value = String(formValue[id]);
-    return <MakeTextField key={c.id} id={props.title + "_" + c.id} label={c.label} type={c.type} sx={c.sx} value={value} handler={handleChangeText} inputProps=""/>
+    return <MakeTextField key={c.id} id={props.title + "_" + c.id} label={c.label} type={c.type} sx={c.sx} value={value} handler={handleChangeText} inputProps={{}}/>
   }
   );
   makeFormSelect.push(makeTextFieldList);
   return (
     <Fragment>
       <MakeMemberCard key="MakeMemberCard" makeFormSelect={makeFormSelect} title={props.title} border={props.border} color={props.color}
-      backgroundColor={props.backgroundColor} clearHandler={handleClear} sx="" id="" subheader="" />
+      backgroundColor={props.backgroundColor} clearHandler={handleClear} sx={{}} id="" subheader="" />
     </Fragment>
   );
 }

@@ -51,7 +51,7 @@ export default function CharacterArea(props: InfType) {
     if (formValue[id])
       value = String(formValue[id]);
     return <MakeTextField key={type + c.id} id={type + c.id} label={String(c.fullName)} value={value} handler={handleChangeText}
-      type={'number'} sx={{ width: 256, margin: 1 }} inputProps="" />
+      type={'number'} sx={{ width: 256, margin: 1 }} inputProps={{}} />
   });
   const handleClear = () => {
     for (let key in formValue) {
