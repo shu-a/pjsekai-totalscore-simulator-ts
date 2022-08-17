@@ -149,16 +149,22 @@ export default function SimpleAccordion() {
   }
   accordion.push(obj);
 
-  obj.title = "캐릭터 랭크 정보 위치";
-  obj.content = <RankInfo />;
+  obj = {
+    title: "캐릭터 랭크 정보 위치",
+    content: <RankInfo />
+  }
   accordion.push(obj);
 
-  obj.title = "칭호 보너스 정보 위치";
-  obj.content = <TitleBonusInfo />;
+  obj = {
+    title: "칭호 보너스 정보 위치",
+    content: <TitleBonusInfo />
+  }
   accordion.push(obj);
 
-  obj.title = "카드 정보 입력 방법";
-  obj.content = <CardManual />;
+  obj = {
+    title: "카드 정보 입력 방법",
+    content: <CardManual />
+  }
   accordion.push(obj);
   let i = 0;
   const content = accordion.map(c => {
