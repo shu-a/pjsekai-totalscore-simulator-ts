@@ -15,6 +15,7 @@ interface InfProps extends InfMakeProps {
   selectList: any
   helperText: string
 }
+
 export default function MakeFormSelect(props: InfProps) {
   let propsId = String(props.id);
   /* 옵션

@@ -4,6 +4,7 @@ import { getTeamList, getAttrList, InfAttrList } from '../../apis/apiClient'
 import MakeCard from '../../components/MakeCard';
 import MakeTextField from '../../components/MakeTextField';
 import localforage from 'localforage';
+import { InfType } from '../Card/Index';
 
 function switchiId(props: string) {
   switch (props) {
@@ -27,7 +28,7 @@ function switchTitle(props: string) {
   }
 }
 
-export default function AttrTeamArea(props: any) {
+export default function AttrTeamArea(props: InfType) {
   const [attrTeamAreaList, setAttrTeamAreaList] = useState<InfAttrList[]>([]);
   const [formValue, setFormValue] = useState<InfKeyValue>({});
   const type = switchiId(props.type);

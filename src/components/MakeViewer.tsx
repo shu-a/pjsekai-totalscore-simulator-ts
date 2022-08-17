@@ -7,6 +7,7 @@ interface InfProps {
   src: string
   alt: string
 }
+
 export default function MakeViewer(props: InfProps) {
   // const [src, setSrc] = useState('');
   // const [alt, setAlt] = useState('');

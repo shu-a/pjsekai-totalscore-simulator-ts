@@ -9,6 +9,7 @@ interface InfProps extends InfMakeProps {
   type: string
   inputProps: any
 }
+
 export default function MakeTextField(props: InfProps) {
   let propsId = String(props.id);
   /* 옵션

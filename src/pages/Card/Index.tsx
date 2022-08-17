@@ -13,7 +13,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { talantScore } from '../../components/TalantScoreCalc'
 import Chip from '@mui/material/Chip';
 
-export interface InfCharacterArea {
+export interface InfType {
   type: string
 }
 

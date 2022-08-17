@@ -10,6 +10,7 @@ interface InfProps extends InfMakePropsTitle {
   content: JSX.Element[]
   clearHandler: any
 }
+
 export default function MakeCard(props: InfProps) {
   /* 옵션
   sx

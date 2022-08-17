@@ -4,7 +4,7 @@ import { getCharacterList } from '../../apis/apiClient';
 import MakeCard from '../../components/MakeCard';
 import MakeTextField from '../../components/MakeTextField';
 import localforage from 'localforage';
-import { InfCharacterArea } from '../Card/Index';
+import { InfType } from '../Card/Index';
 
 function switchiId(props: string) {
   switch (props) {
@@ -27,7 +27,7 @@ function switchTitle(props: string) {
       return '';
   }
 }
-export default function CharacterArea(props: InfCharacterArea) {
+export default function CharacterArea(props: InfType) {
   const [characterList, setCharacterList] = useState([]);
   const [formValue, setFormValue] = useState<InfKeyValue>({});
   const type = switchiId(props.type);
