@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { InfMakePropsTitle } from '../common/common';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';

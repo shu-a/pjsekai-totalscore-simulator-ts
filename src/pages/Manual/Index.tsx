@@ -1,4 +1,4 @@
-import React, { Component, Fragment, useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Box } from '@mui/material';
 import MakeAccordion from '../../components/MakeAccordion';
 import MakeViewer from '../../components/MakeViewer';

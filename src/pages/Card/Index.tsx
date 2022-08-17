@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { InfKeyValue } from '../../common/common';
 import CardSet from './CardSet';
 import CharacterArea from './CharacterArea';
 import AttrTeamArea from './AttrTeamArea';
