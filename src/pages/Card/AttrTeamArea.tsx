@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { IKeyValue, IAttrList, IType } from '../../common/common';
+import { IKeyValue, IAttrList, IType } from '../../interface/common';
 import { getTeamList, getAttrList } from '../../apis/apiClient'
 import MakeCard from '../../components/MakeCard';
 import MakeTextField from '../../components/MakeTextField';

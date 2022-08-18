@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { IKeyValue, IType } from '../../common/common';
+import { IKeyValue, IType } from '../../interface/common';
 import { getCharacterList } from '../../apis/apiClient';
 import MakeCard from '../../components/MakeCard';
 import MakeTextField from '../../components/MakeTextField';

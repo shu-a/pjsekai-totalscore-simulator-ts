@@ -1,5 +1,5 @@
 import React, { useState, Fragment, useEffect } from 'react';
-import { IKeyValue, ICardContents } from '../../common/common'
+import { IKeyValue, ICardContents } from '../../interface/common'
 import MakeMemberCard from '../../components/MakeMemberCard';
 import MenuItem from '@mui/material/MenuItem';
 import MakeFormSelect from '../../components/MakeFormSelect';

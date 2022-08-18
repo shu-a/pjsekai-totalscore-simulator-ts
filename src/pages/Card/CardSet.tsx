@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { IAttrList } from '../../common/common';
+import { IAttrList } from '../../interface/common';
 import CardContents from './CardContents';
 import { getTeamList, getCharacterList, getRaritiesList, getAttrList } from '../../apis/apiClient'
 
