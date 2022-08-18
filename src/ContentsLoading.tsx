@@ -1,11 +1,12 @@
 import * as React from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
-import { isMobile } from 'react-device-detect';
+// import { isMobile } from 'react-device-detect';
 
 interface IProps {
   complete: boolean
 }
+
 export default function ContentsLoading(props: IProps) {
   return (
     <Box sx={{
