@@ -12,6 +12,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { talantScore } from './TalantScoreCalc'
 import Chip from '@mui/material/Chip';
+import ContentsLoading from '../../ContentsLoading';
 
 const gridStyle = {
   default: {
@@ -43,6 +44,8 @@ const style3 = {
 }
 
 export default function CardIndex() {
+  const [loading, setLoading] = useState(true);
+  setTimeout(() => { setLoading(false); }, 1000);
   const handleSubmit = (event: any) => {
     event.preventDefault();
     const totalScore = talantScore(event);
@@ -64,8 +67,9 @@ export default function CardIndex() {
   const [rankBonus, setRankBonus] = useState(0);
   const [titleBonus, setTitleBonus] = useState(0);
   const [ptsScore, setPtsScore] = useState(0);
-  return (
+  return (    
     <Box component="form" onSubmit={handleSubmit} id="talantForm">
+      <ContentsLoading complete={loading} />
       <FormControl component="fieldset" variant="standard">
         <Grid container sx={{ maxWidth: 1550 }}>
           <Grid container spacing={0.5} sx={gridStyle.default}>
