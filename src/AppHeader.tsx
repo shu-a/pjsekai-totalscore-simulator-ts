@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Menu from './Menu';
 
-export default function AppSkeleton() {
+export default function AppHeader() {
   return (
     <Box component="div">
       <Box component="div">
