@@ -3,11 +3,11 @@ import { IMakeProps } from '../common/common';
 import TextField from '@mui/material/TextField';
 
 interface IProps extends IMakeProps {
-  label: string
-  value: string | number
-  handler: any
-  type: string
-  inputProps: any
+  label: string;
+  value: string | number;
+  handler: any;
+  type: string;
+  inputProps: any;
 }
 
 export default function MakeTextField(props: IProps) {

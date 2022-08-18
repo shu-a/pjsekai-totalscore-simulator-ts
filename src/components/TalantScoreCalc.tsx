@@ -1,16 +1,16 @@
 import { IKeyValue } from '../common/common';
 
 interface ICardData {  
-  characterArea: IKeyValue
-  characterRank: IKeyValue
-  teamArea: IKeyValue
-  attrArea: IKeyValue
-  leader: IKeyValue
-  subLeader: IKeyValue
-  member1: IKeyValue
-  member2: IKeyValue
-  member3: IKeyValue
-  bonus: FormDataEntryValue | null
+  characterArea: IKeyValue;
+  characterRank: IKeyValue;
+  teamArea: IKeyValue;
+  attrArea: IKeyValue;
+  leader: IKeyValue;
+  subLeader: IKeyValue;
+  member1: IKeyValue;
+  member2: IKeyValue;
+  member3: IKeyValue;
+  bonus: FormDataEntryValue | null;
 }
 
 export const talantScore = (event: any) => {
@@ -161,11 +161,11 @@ export const talantScoreCalc = (props: ICardData) => {
   const member2 = memberBonus(props.member2, props.characterArea, props.characterRank, props.teamArea, props.attrArea, teamBonus, attrBonus);
   const member3 = memberBonus(props.member3, props.characterArea, props.characterRank, props.teamArea, props.attrArea, teamBonus, attrBonus);
   interface ITotalScore {
-    totalScore: number
-    titleBonus: number
-    areaBonus: number
-    rankBonus: number
-    ptsScore: number
+    totalScore: number;
+    titleBonus: number;
+    areaBonus: number;
+    rankBonus: number;
+    ptsScore: number;
   }
   const totalScore: ITotalScore = {
     totalScore: leader.resultBonus + subLeader.resultBonus + member1.resultBonus + member2.resultBonus + member3.resultBonus + Number(props.bonus),
@@ -180,17 +180,17 @@ export const talantScoreCalc = (props: ICardData) => {
 }
 
 interface IResultBonus {
-  resultBonus: number
-  cAreaBonus: number
-  cRankBonus: number
+  resultBonus: number;
+  cAreaBonus: number;
+  cRankBonus: number;
 }
 
 interface IPTSValue {
-  performance: number
-  technique: number
-  stamina: number
-  rankBonus: number
-  areaBonus: number
+  performance: number;
+  technique: number;
+  stamina: number;
+  rankBonus: number;
+  areaBonus: number;
 }
 
 const memberBonus = (card: IKeyValue, characterArea: IKeyValue, characterRank: IKeyValue,

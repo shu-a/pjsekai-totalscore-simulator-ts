@@ -6,14 +6,14 @@ import InputLabel from '@mui/material/InputLabel';
 import FormHelperText from '@mui/material/FormHelperText';
 
 interface IProps extends IMakeProps {
-  inputLabel: string
-  label: string
-  value: string | number
-  handler: any
-  readonly: boolean
-  selectSx: any
-  selectList: any
-  helperText: string
+  inputLabel: string;
+  label: string;
+  value: string | number;
+  handler: any;
+  readonly: boolean;
+  selectSx: any;
+  selectList: any;
+  helperText: string;
 }
 
 export default function MakeFormSelect(props: IProps) {

@@ -2,10 +2,10 @@ import React from 'react';
 import Viewer from 'react-viewer';
 
 interface IProps {
-  visible: boolean
-  close: () => void
-  src: string
-  alt: string
+  visible: boolean;
+  close: () => void;
+  src: string;
+  alt: string;
 }
 
 export default function MakeViewer(props: IProps) {

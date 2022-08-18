@@ -140,8 +140,8 @@ export default function SimpleAccordion() {
   }
   const accordion = [];
   interface IObj {
-    title: string
-    content: JSX.Element
+    title: string;
+    content: JSX.Element;
   }
   let obj: IObj = {
     title: "에어리어 정보 위치",

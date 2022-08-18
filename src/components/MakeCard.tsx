@@ -6,9 +6,9 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 import IconButton from '@mui/material/IconButton';
 
 interface IProps extends IMakePropsTitle {
-  subheader: string
-  content: JSX.Element[]
-  clearHandler: any
+  subheader: string;
+  content: JSX.Element[];
+  clearHandler: any;
 }
 
 export default function MakeCard(props: IProps) {

@@ -3,13 +3,13 @@ import { IMakePropsTitle } from '../common/common';
 import MakeCard from './MakeCard';
 
 interface IProps extends IMakePropsTitle {
-  subheader: string
-  clearHandler: any
-  border: any
-  color: string
-  backgroundColor: string
+  subheader: string;
+  clearHandler: any;
+  border: any;
+  color: string;
+  backgroundColor: string;
   // makeFormSelect: JSX.Element[]
-  makeFormSelect: any
+  makeFormSelect: any;
 }
 
 export default function MakeMemberCard(props: IProps) {

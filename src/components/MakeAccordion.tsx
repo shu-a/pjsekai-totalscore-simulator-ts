@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 interface IProps extends IMakePropsTitle {
-  content: JSX.Element
+  content: JSX.Element;
 }
 
 export default function SimpleAccordion(props: IProps) {
