@@ -1,33 +1,15 @@
-import { InfKeyValue } from '../common/common';
+import { IKeyValue } from '../common/common';
 
-interface InfCardData {  
-  characterArea: {
-    [key: string]: string | number
-  }
-  characterRank: {
-    [key: string]: string | number
-  }
-  teamArea: {
-    [key: string]: string | number
-  }
-  attrArea: {
-    [key: string]: string | number
-  }
-  leader: {
-    [key: string]: string | number
-  }
-  subLeader: {
-    [key: string]: string | number
-  }
-  member1: {
-    [key: string]: string | number
-  }
-  member2: {
-    [key: string]: string | number
-  }
-  member3: {
-    [key: string]: string | number
-  }
+interface ICardData {  
+  characterArea: IKeyValue
+  characterRank: IKeyValue
+  teamArea: IKeyValue
+  attrArea: IKeyValue
+  leader: IKeyValue
+  subLeader: IKeyValue
+  member1: IKeyValue
+  member2: IKeyValue
+  member3: IKeyValue
   bonus: FormDataEntryValue | null
 }
 
@@ -131,7 +113,7 @@ export const talantScore = (event: any) => {
       }
     }
   }
-  const cardData: InfCardData = {
+  const cardData: ICardData = {
     characterArea: characterArea,
     characterRank: characterRank,
     teamArea: teamArea,
@@ -147,7 +129,7 @@ export const talantScore = (event: any) => {
   return talantScoreCalc(cardData);
 }
 
-export const talantScoreCalc = (props: InfCardData) => {
+export const talantScoreCalc = (props: ICardData) => {
   const leaderTeam = props.leader.Leader_team;
   const subLeaderTeam = props.subLeader.SubLeader_team;
   const member1Team = props.member1.Member1_team;
@@ -178,14 +160,14 @@ export const talantScoreCalc = (props: InfCardData) => {
   const member1 = memberBonus(props.member1, props.characterArea, props.characterRank, props.teamArea, props.attrArea, teamBonus, attrBonus);
   const member2 = memberBonus(props.member2, props.characterArea, props.characterRank, props.teamArea, props.attrArea, teamBonus, attrBonus);
   const member3 = memberBonus(props.member3, props.characterArea, props.characterRank, props.teamArea, props.attrArea, teamBonus, attrBonus);
-  interface InfTotalScore {
+  interface ITotalScore {
     totalScore: number
     titleBonus: number
     areaBonus: number
     rankBonus: number
     ptsScore: number
   }
-  const totalScore: InfTotalScore = {
+  const totalScore: ITotalScore = {
     totalScore: leader.resultBonus + subLeader.resultBonus + member1.resultBonus + member2.resultBonus + member3.resultBonus + Number(props.bonus),
     titleBonus: Number(props.bonus),
     areaBonus: leader.cAreaBonus + subLeader.cAreaBonus + member1.cAreaBonus + member2.cAreaBonus + member3.cAreaBonus,
@@ -197,13 +179,13 @@ export const talantScoreCalc = (props: InfCardData) => {
   return totalScore;
 }
 
-interface InfResultBonus {
+interface IResultBonus {
   resultBonus: number
   cAreaBonus: number
   cRankBonus: number
 }
 
-interface InfPTSValue {
+interface IPTSValue {
   performance: number
   technique: number
   stamina: number
@@ -211,8 +193,8 @@ interface InfPTSValue {
   areaBonus: number
 }
 
-const memberBonus = (card: InfKeyValue, characterArea: InfKeyValue, characterRank: InfKeyValue,
-  teamArea: InfKeyValue, attrArea: InfKeyValue, teamBonus: string, attrBonus: string) => {
+const memberBonus = (card: IKeyValue, characterArea: IKeyValue, characterRank: IKeyValue,
+  teamArea: IKeyValue, attrArea: IKeyValue, teamBonus: string, attrBonus: string) => {
   let performance = 0;
   let technique = 0;
   let stamina = 0;
@@ -292,7 +274,7 @@ const memberBonus = (card: InfKeyValue, characterArea: InfKeyValue, characterRan
     attrAreaBonus += attrAreaBonus;
 
   areaBonus = characterAreaBonus + teamAreaBonus + attrAreaBonus;
-  const value: InfPTSValue = {
+  const value: IPTSValue = {
     performance: performance,
     technique: technique,
     stamina: stamina,
@@ -302,7 +284,7 @@ const memberBonus = (card: InfKeyValue, characterArea: InfKeyValue, characterRan
 
   const cAreaBonus = getBonus(value, 'area');
   const cRankBonus = getBonus(value, 'rank');
-  const resultBonus: InfResultBonus = {
+  const resultBonus: IResultBonus = {
     resultBonus: cAreaBonus + cRankBonus + performance + technique + stamina,
     cAreaBonus: cAreaBonus,
     cRankBonus: cRankBonus
@@ -311,22 +293,22 @@ const memberBonus = (card: InfKeyValue, characterArea: InfKeyValue, characterRan
   return resultBonus;
 }
 
-const getPerformanceBonus = (props: InfPTSValue, type: string) => {
+const getPerformanceBonus = (props: IPTSValue, type: string) => {
   const bonus = Math.floor(Number(props.performance) * Number(type === 'rank' ? props.rankBonus / 1000 : props.areaBonus / 100));
   return bonus;
 }
 
-const getTechniqueBonus = (props: InfPTSValue, type: string) => {
+const getTechniqueBonus = (props: IPTSValue, type: string) => {
   const bonus = Math.floor(Number(props.technique) * Number(type === 'rank' ? props.rankBonus / 1000 : props.areaBonus / 100));
   return bonus;
 }
 
-const getStaminaBonus = (props: InfPTSValue, type: string) => {
+const getStaminaBonus = (props: IPTSValue, type: string) => {
   const bonus = Math.floor(Number(props.stamina) * Number(type === 'rank' ? props.rankBonus / 1000 : props.areaBonus / 100));
   return bonus;
 }
 
-const getBonus = (props: InfPTSValue, type: string) => {
+const getBonus = (props: IPTSValue, type: string) => {
   const bonus = getPerformanceBonus(props, type) + getTechniqueBonus(props, type) + getStaminaBonus(props, type);
   return bonus;
 }

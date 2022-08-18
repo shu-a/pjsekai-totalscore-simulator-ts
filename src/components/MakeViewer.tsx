@@ -1,14 +1,14 @@
 import React from 'react';
 import Viewer from 'react-viewer';
 
-interface InfProps {
+interface IProps {
   visible: boolean
   close: () => void
   src: string
   alt: string
 }
 
-export default function MakeViewer(props: InfProps) {
+export default function MakeViewer(props: IProps) {
   // const [src, setSrc] = useState('');
   // const [alt, setAlt] = useState('');
   // const [visible, setVisible] = useState(false);

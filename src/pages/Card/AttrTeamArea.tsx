@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { InfKeyValue } from '../../common/common';
-import { getTeamList, getAttrList, InfAttrList } from '../../apis/apiClient'
+import { IKeyValue, IAttrList, IType } from '../../common/common';
+import { getTeamList, getAttrList } from '../../apis/apiClient'
 import MakeCard from '../../components/MakeCard';
 import MakeTextField from '../../components/MakeTextField';
 import localforage from 'localforage';
-import { InfType } from '../Card/Index';
 
 function switchiId(props: string) {
   switch (props) {
@@ -28,9 +27,9 @@ function switchTitle(props: string) {
   }
 }
 
-export default function AttrTeamArea(props: InfType) {
-  const [attrTeamAreaList, setAttrTeamAreaList] = useState<InfAttrList[]>([]);
-  const [formValue, setFormValue] = useState<InfKeyValue>({});
+export default function AttrTeamArea(props: IType) {
+  const [attrTeamAreaList, setAttrTeamAreaList] = useState<IAttrList[]>([]);
+  const [formValue, setFormValue] = useState<IKeyValue>({});
   const type = switchiId(props.type);
   useEffect(() => {
     localforage.getItem(type).then((value: any) => {
@@ -66,7 +65,7 @@ export default function AttrTeamArea(props: InfType) {
 
   if (props.type === 'attr')
     textField.push(<MakeTextField key="titleBonus" id="titleBonus" label="칭호 보너스" value={formValue['titleBonus'] ? formValue['titleBonus'] : ''}
-    handler={handleChangeText} type={"number"} sx={{ width: 256, margin: 1 }} inputProps={{ step: 0.1 }} />);
+      handler={handleChangeText} type={"number"} sx={{ width: 256, margin: 1 }} inputProps={{ step: 0.1 }} />);
   return (
     <MakeCard
       sx={{

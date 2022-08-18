@@ -1,16 +1,16 @@
 import * as React from 'react';
-import { InfMakePropsTitle } from '../common/common';
+import { IMakePropsTitle } from '../common/common';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-interface InfProps extends InfMakePropsTitle {
+interface IProps extends IMakePropsTitle {
   content: JSX.Element
 }
 
-export default function SimpleAccordion(props: InfProps) {
+export default function SimpleAccordion(props: IProps) {
   let propsId = String(props.id);
   return (
     <React.Fragment>

@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-import { InfMakeProps } from '../common/common';
+import { IMakeProps } from '../common/common';
 import TextField from '@mui/material/TextField';
 
-interface InfProps extends InfMakeProps {
+interface IProps extends IMakeProps {
   label: string
   value: string | number
   handler: any
@@ -10,7 +10,7 @@ interface InfProps extends InfMakeProps {
   inputProps: any
 }
 
-export default function MakeTextField(props: InfProps) {
+export default function MakeTextField(props: IProps) {
   let propsId = String(props.id);
   /* 옵션
   id

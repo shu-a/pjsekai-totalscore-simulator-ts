@@ -1,17 +1,17 @@
 import React, { Fragment } from 'react';
-import { InfMakePropsTitle } from '../common/common';
+import { IMakePropsTitle } from '../common/common';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import IconButton from '@mui/material/IconButton';
 
-interface InfProps extends InfMakePropsTitle {
+interface IProps extends IMakePropsTitle {
   subheader: string
   content: JSX.Element[]
   clearHandler: any
 }
 
-export default function MakeCard(props: InfProps) {
+export default function MakeCard(props: IProps) {
   /* 옵션
   sx
   id

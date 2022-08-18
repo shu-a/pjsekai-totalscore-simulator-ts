@@ -1,12 +1,12 @@
 import React, { useState, Fragment, useEffect } from 'react';
-import { InfKeyValue } from '../../common/common'
+import { IKeyValue, ICardContents } from '../../common/common'
 import MakeMemberCard from '../../components/MakeMemberCard';
 import MenuItem from '@mui/material/MenuItem';
 import MakeFormSelect from '../../components/MakeFormSelect';
 import MakeTextField from '../../components/MakeTextField';
 import localforage from 'localforage';
 
-export default function CardContents(props: any) {
+export default function CardContents(props: ICardContents) {
   const [readOnlySubUnit, setReadOnlySubUnit] = useState(true);
   const [readOnlyCharacter, setReadOnlyCharacter] = useState(true);
   const changeReadonly = (team: string) => {
@@ -24,7 +24,7 @@ export default function CardContents(props: any) {
       setHelperText(defaultHelperText);
     }
   }
-  const [formValue, setFormValue] = useState<InfKeyValue>({});
+  const [formValue, setFormValue] = useState<IKeyValue>({});
   const [loadTeam, setLoadTeam] = useState('N');
   useEffect(() => {
     localforage.getItem(props.title).then((value: any) => {
@@ -90,7 +90,7 @@ export default function CardContents(props: any) {
     setFormValue({ ...formValue, [name]: value });
   }
 
-  const [charactList, setCharacterList] = useState([]);
+  const [charactList, setCharacterList] = useState<(false | JSX.Element)[]>([]);
   const [loadSubUnit, setLoadSubUnit] = useState('N');
   useEffect(() => {
     changeReadonly(team);

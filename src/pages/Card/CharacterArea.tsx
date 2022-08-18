@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { InfKeyValue } from '../../common/common';
+import { IKeyValue, IType } from '../../common/common';
 import { getCharacterList } from '../../apis/apiClient';
 import MakeCard from '../../components/MakeCard';
 import MakeTextField from '../../components/MakeTextField';
 import localforage from 'localforage';
-import { InfType } from '../Card/Index';
 
 function switchiId(props: string) {
   switch (props) {
@@ -27,9 +26,9 @@ function switchTitle(props: string) {
       return '';
   }
 }
-export default function CharacterArea(props: InfType) {
+export default function CharacterArea(props: IType) {
   const [characterList, setCharacterList] = useState([]);
-  const [formValue, setFormValue] = useState<InfKeyValue>({});
+  const [formValue, setFormValue] = useState<IKeyValue>({});
   const type = switchiId(props.type);
   useEffect(() => {
     localforage.getItem(type).then((value: any) => {
@@ -45,7 +44,7 @@ export default function CharacterArea(props: InfType) {
   useEffect(() => {
     localforage.setItem(type, formValue);// eslint-disable-next-line
   }, [formValue]);
-  const textField = characterList.map((c: InfKeyValue) => {
+  const textField = characterList.map((c: IKeyValue) => {
     let value = '';
     let id = type + c.id;
     if (formValue[id])

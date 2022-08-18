@@ -13,10 +13,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { talantScore } from '../../components/TalantScoreCalc'
 import Chip from '@mui/material/Chip';
 
-export interface InfType {
-  type: string
-}
-
 const gridStyle = {
   default: {
     mt: 0.5,

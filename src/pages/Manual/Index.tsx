@@ -139,11 +139,11 @@ export default function SimpleAccordion() {
     );
   }
   const accordion = [];
-  interface InfObj {
+  interface IObj {
     title: string
     content: JSX.Element
   }
-  let obj: InfObj = {
+  let obj: IObj = {
     title: "에어리어 정보 위치",
     content: <AreaInfo />
   }

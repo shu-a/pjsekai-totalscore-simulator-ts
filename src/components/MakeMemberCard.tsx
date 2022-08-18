@@ -1,8 +1,8 @@
 import React from 'react';
-import { InfMakePropsTitle } from '../common/common';
+import { IMakePropsTitle } from '../common/common';
 import MakeCard from './MakeCard';
 
-interface InfProps extends InfMakePropsTitle {
+interface IProps extends IMakePropsTitle {
   subheader: string
   clearHandler: any
   border: any
@@ -12,7 +12,7 @@ interface InfProps extends InfMakePropsTitle {
   makeFormSelect: any
 }
 
-export default function MakeMemberCard(props: InfProps) {
+export default function MakeMemberCard(props: IProps) {
   /* 옵션
   sx
   id
