@@ -10,7 +10,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { talantScore } from '../../components/TalantScoreCalc'
+import { talantScore } from './TalantScoreCalc'
 import Chip from '@mui/material/Chip';
 
 const gridStyle = {

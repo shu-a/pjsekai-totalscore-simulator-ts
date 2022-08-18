@@ -1,4 +1,4 @@
-import { IKeyValue } from '../interface/common';
+import { IKeyValue } from '../../interface/common';
 
 interface ICardData {  
   characterArea: IKeyValue;
