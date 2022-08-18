@@ -2,15 +2,6 @@ export interface IKeyValue {
   [key: string]: string | number;
 }
 
-export interface IMakeProps {
-  sx: any;
-  id: string | number;
-}
-
-export interface IMakePropsTitle extends IMakeProps {
-  title: string;
-}
-
 export interface ICardContents {
   key: number;
   teamList: Array<ITeamList>;

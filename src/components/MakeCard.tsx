@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { IMakePropsTitle } from '../common/common';
+import { IMakePropsTitle } from '../common/make';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import RefreshIcon from '@mui/icons-material/Refresh';

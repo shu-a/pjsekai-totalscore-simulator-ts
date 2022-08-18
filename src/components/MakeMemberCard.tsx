@@ -1,5 +1,5 @@
 import React from 'react';
-import { IMakePropsTitle } from '../common/common';
+import { IMakePropsTitle } from '../common/make';
 import MakeCard from './MakeCard';
 
 interface IProps extends IMakePropsTitle {

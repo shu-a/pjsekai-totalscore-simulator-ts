@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IMakePropsTitle } from '../common/common';
+import { IMakePropsTitle } from '../common/make';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { IMakeProps } from '../common/common';
+import { IMakeProps } from '../common/make';
 import TextField from '@mui/material/TextField';
 
 interface IProps extends IMakeProps {

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { IMakeProps } from '../common/common';
+import { IMakeProps } from '../common/make';
 import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
