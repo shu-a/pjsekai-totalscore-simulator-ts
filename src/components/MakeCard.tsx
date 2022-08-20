@@ -29,7 +29,7 @@ export default function MakeCard(props: IProps) {
       >
         <CardHeader
           action={
-            <IconButton aria-label={'ariaLabel_' + props.id} onClick={props.clearHandler}>
+            <IconButton aria-label={`ariaLabel_${props.id}`} onClick={props.clearHandler}>
               <RefreshIcon />
             </IconButton>
           }

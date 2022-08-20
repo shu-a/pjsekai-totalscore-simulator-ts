@@ -28,9 +28,9 @@ export default function CardContents(props: ICardContents) {
   const [loadTeam, setLoadTeam] = useState('N');
   useEffect(() => {
     localforage.getItem(props.title).then((value: any) => {
-      const getAttr = props.title + '_attr';
-      const getTeam = props.title + '_team';
-      const getRarities = props.title + '_rarities';
+      const getAttr = `${props.title}_attr`;
+      const getTeam = `${props.title}_team`;
+      const getRarities = `${props.title}_rarities`;
       if (value) {
         setFormValue(value);
         setAttr(value[getAttr] ? value[getAttr] : '');
@@ -94,7 +94,7 @@ export default function CardContents(props: ICardContents) {
   const [loadSubUnit, setLoadSubUnit] = useState('N');
   useEffect(() => {
     changeReadonly(team);
-    const subUnitName = props.title + '_subUnit';
+    const subUnitName = `${props.title}_subUnit`;
     if (team && loadTeam === 'N') {
       const subUnitEvent = { target: { name: subUnitName, value: formValue[subUnitName] } };
       handleSelectSubUnit(subUnitEvent);
@@ -105,7 +105,7 @@ export default function CardContents(props: ICardContents) {
       handleSelectSubUnit(subUnitEvent);
       setLoadSubUnit('Y');
     }
-    const characterName = props.title + '_character';
+    const characterName = `${props.title}_character`;
     if (loadSubUnit === 'Y') {
       if (team && loadTeam === 'N') {
         const characterEvent = { target: { name: characterName, value: formValue[characterName] } };
@@ -152,7 +152,7 @@ export default function CardContents(props: ICardContents) {
     }
   ];
   const makeFormSelectlist = makeFormSelectContents.map((c) => {
-    return <MakeFormSelect key={c.id} id={props.title + '_' + c.id} sx={c.sx} label={c.label} inputLabel={c.label} value={c.value ? c.value : ''} handler={c.handler}
+    return <MakeFormSelect key={c.id} id={`${props.title}_${c.id}`} sx={c.sx} label={c.label} inputLabel={c.label} value={c.value ? c.value : ''} handler={c.handler}
       selectList={c.selectList} readonly={c.readonly!} helperText={c.helperText!} selectSx={{}} />
   });
   makeFormSelect.push(makeFormSelectlist);
@@ -164,10 +164,10 @@ export default function CardContents(props: ICardContents) {
   ];
   const makeTextFieldList = makeTextFieldContents.map((c) => {
     let value = '';
-    let id = props.title + "_" + c.id;
+    let id = `${props.title}_${c.id}`;
     if (formValue[id])
       value = String(formValue[id]);
-    return <MakeTextField key={c.id} id={props.title + "_" + c.id} label={c.label} type={c.type} sx={c.sx} value={value} handler={handleChangeText} inputProps={{}}/>
+    return <MakeTextField key={c.id} id={`${props.title}_${c.id}`} label={c.label} type={c.type} sx={c.sx} value={value} handler={handleChangeText} inputProps={{}}/>
   }
   );
   makeFormSelect.push(makeTextFieldList);

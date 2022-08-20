@@ -25,10 +25,10 @@ const validationRankArea = (key: string, value: FormDataEntryValue | null) => {
 
 const validationCard = (id: string, key: string, value: FormDataEntryValue | null) => {
   if (!value) {
-    if (key === id + '_performance' || key === id + '_stamina' || key === id + '_technique')
+    if (key === `${id}_performance` || key === `${id}_stamina` || key === `${id}_technique`)
       document.getElementById(key)!.focus();
     else
-      document.getElementById('mui-component-select-' + key)!.focus();
+      document.getElementById(`mui-component-select-${key}`)!.focus();
     alert("값을 입력해주세요.");
     return false;
   } else {
