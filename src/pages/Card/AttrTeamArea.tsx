@@ -57,15 +57,16 @@ export default function AttrTeamArea(props: IType) {
       type={"number"} sx={{ width: 256, margin: 1 }} inputProps={{ step: 0.1 }} />
   });
   const handleClear = () => {
+    const formValueCpy = {...formValue};
     for (let key in formValue) {
-      delete formValue[key];
-      setFormValue(formValue);
+      delete formValueCpy[key];
+      setFormValue(formValueCpy);
     }
   }
-
   if (props.type === 'attr')
     textField.push(<MakeTextField key="titleBonus" id="titleBonus" label="칭호 보너스" value={formValue['titleBonus'] ? formValue['titleBonus'] : ''}
       handler={handleChangeText} type={"number"} sx={{ width: 256, margin: 1 }} inputProps={{ step: 0.1 }} />);
+      
   return (
     <MakeCard
       sx={{

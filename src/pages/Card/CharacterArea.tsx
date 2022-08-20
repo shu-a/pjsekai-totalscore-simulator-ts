@@ -53,10 +53,10 @@ export default function CharacterArea(props: IType) {
       type={'number'} sx={{ width: 256, margin: 1 }} inputProps={{}} />
   });
   const handleClear = () => {
+    const formValueCpy = {...formValue};
     for (let key in formValue) {
-      // setFormValue(delete formValue[key]);
-      delete formValue[key];
-      setFormValue(formValue);
+      delete formValueCpy[key];
+      setFormValue(formValueCpy);
     }
   }
 
