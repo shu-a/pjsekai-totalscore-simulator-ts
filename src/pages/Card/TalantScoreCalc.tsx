@@ -13,6 +13,29 @@ interface ICardData {
   bonus: FormDataEntryValue | null;
 }
 
+const validationArray = (key: string, value: FormDataEntryValue | null) => {
+  if (!value) {
+    document.getElementById(key)!.focus();
+    alert("값을 입력해주세요.");
+    return false;
+  } else {
+    return true;
+  }
+}
+
+const validationCard = (id: string, key: string, value: FormDataEntryValue | null) => {
+  if (!value) {
+    if (key === id + '_performance' || key === id + '_stamina' || key === id + '_technique')
+      document.getElementById(key)!.focus();
+    else
+      document.getElementById('mui-component-select-' + key)!.focus();
+    alert("값을 입력해주세요.");
+    return false;
+  } else {
+    return true;
+  }
+}
+
 export const talantScore = (event: any) => {
   const formData = new FormData(event.currentTarget);
   let characterArea = {};
@@ -29,88 +52,33 @@ export const talantScore = (event: any) => {
     let value = formData.get(key);
     if (id === 'teamArea') {
       teamArea = { ...teamArea, [key]: value }
-      if (!value) {
-        document.getElementById(key)!.focus();
-        alert("값을 입력해주세요.");
-        return false;
-      }
+      if (!validationArray(key, value)) return false;
     } else if (id === 'attrArea') {
       attrArea = { ...attrArea, [key]: value }
-      if (!value) {
-        document.getElementById(key)!.focus();
-        alert("값을 입력해주세요.");
-        return false;
-      }
+      if (!validationArray(key, value)) return false;
     } else if (key === 'titleBonus') {
-      if (!value) {
-        document.getElementById(key)!.focus();
-        alert("값을 입력해주세요.");
-        return false;
-      }
+      if (!validationArray(key, value)) return false;
     } else if (id === 'characterArea') {
       characterArea = { ...characterArea, [key]: value }
-      if (!value) {
-        document.getElementById(key)!.focus();
-        alert("값을 입력해주세요.");
-        return false;
-      }
+      if (!validationArray(key, value)) return false;
     } else if (id === 'characterRank') {
       characterRank = { ...characterRank, [key]: value }
-      if (!value) {
-        document.getElementById(key)!.focus();
-        alert("값을 입력해주세요.");
-        return false;
-      }
+      if (!validationArray(key, value)) return false;
     } else if (id === 'Leader') {
       leader = { ...leader, [key]: value }
-      if (!value) {
-        if (key === id + '_performance' || key === id + '_stamina' || key === id + '_technique')
-          document.getElementById(key)!.focus();
-        else
-          document.getElementById('mui-component-select-' + key)!.focus();
-        alert("값을 입력해주세요.");
-        return false;
-      }
+      if (!validationCard(id, key, value)) return false;
     } else if (id === 'SubLeader') {
       subLeader = { ...subLeader, [key]: value }
-      if (!value) {
-        if (key === id + '_performance' || key === id + '_stamina' || key === id + '_technique')
-          document.getElementById(key)!.focus();
-        else
-          document.getElementById('mui-component-select-' + key)!.focus();
-        alert("값을 입력해주세요.");
-        return false;
-      }
+      if (!validationCard(id, key, value)) return false;
     } else if (id === 'Member1') {
       member1 = { ...member1, [key]: value }
-      if (!value) {
-        if (key === id + '_performance' || key === id + '_stamina' || key === id + '_technique')
-          document.getElementById(key)!.focus();
-        else
-          document.getElementById('mui-component-select-' + key)!.focus();
-        alert("값을 입력해주세요.");
-        return false;
-      }
+      if (!validationCard(id, key, value)) return false;
     } else if (id === 'Member2') {
       member2 = { ...member2, [key]: value }
-      if (!value) {
-        if (key === id + '_performance' || key === id + '_stamina' || key === id + '_technique')
-          document.getElementById(key)!.focus();
-        else
-          document.getElementById('mui-component-select-' + key)!.focus();
-        alert("값을 입력해주세요.");
-        return false;
-      }
+      if (!validationCard(id, key, value)) return false;
     } else if (id === 'Member3') {
       member3 = { ...member3, [key]: value }
-      if (!value) {
-        if (key === id + '_performance' || key === id + '_stamina' || key === id + '_technique')
-          document.getElementById(key)!.focus();
-        else
-          document.getElementById('mui-component-select-' + key)!.focus();
-        alert("값을 입력해주세요.");
-        return false;
-      }
+      if (!validationCard(id, key, value)) return false;
     }
   }
   const cardData: ICardData = {
