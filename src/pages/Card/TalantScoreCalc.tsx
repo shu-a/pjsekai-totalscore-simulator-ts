@@ -1,6 +1,6 @@
 import { IKeyValue } from '../../interface/common';
 
-interface ICardData {  
+interface ICardData {
   characterArea: IKeyValue;
   characterRank: IKeyValue;
   teamArea: IKeyValue;
@@ -93,7 +93,7 @@ export const talantScore = (event: any) => {
     member3: member3,
     bonus: formData.get('titleBonus')
   }
-  
+
   return talantScoreCalc(cardData);
 }
 
@@ -119,6 +119,7 @@ export const talantScoreCalc = (props: ICardData) => {
   } else if (leaderSubUnit === subLeaderSubUnit && leaderSubUnit === member1SubUnit && leaderSubUnit === member2SubUnit && leaderSubUnit === member3SubUnit) {
     teamBonus = 'unit';
   }
+
   let attrBonus = 'N';
   if (leaderAttr === subLeaderAttr && leaderAttr === member1Attr && leaderAttr === member2Attr && leaderAttr === member3Attr)
     attrBonus = 'Y';
@@ -143,7 +144,7 @@ export const talantScoreCalc = (props: ICardData) => {
     ptsScore: 0
   };
   totalScore.ptsScore = totalScore.totalScore - totalScore.titleBonus - totalScore.areaBonus - totalScore.rankBonus
-  
+
   return totalScore;
 }
 
@@ -261,22 +262,13 @@ const memberBonus = (card: IKeyValue, characterArea: IKeyValue, characterRank: I
   return resultBonus;
 }
 
-const getPerformanceBonus = (props: IPTSValue, type: string) => {
-  const bonus = Math.floor(Number(props.performance) * Number(type === 'rank' ? props.rankBonus / 1000 : props.areaBonus / 100));
-  return bonus;
-}
+const getCommonBonus = (type: string, rankBonus: number, areaBonus: number) => Number(type === 'rank' ? rankBonus / 1000 : areaBonus / 100);
+const getPerformanceBonus = (props: IPTSValue, type: string) => Math.floor(Number(props.performance) * getCommonBonus(type, props.rankBonus, props.areaBonus));
+const getTechniqueBonus = (props: IPTSValue, type: string) => Math.floor(Number(props.technique) * getCommonBonus(type, props.rankBonus, props.areaBonus));
+const getStaminaBonus = (props: IPTSValue, type: string) => Math.floor(Number(props.stamina) * getCommonBonus(type, props.rankBonus, props.areaBonus));
+const getBonus = (props: IPTSValue, type: string) => getPerformanceBonus(props, type) + getTechniqueBonus(props, type) + getStaminaBonus(props, type);
 
-const getTechniqueBonus = (props: IPTSValue, type: string) => {
-  const bonus = Math.floor(Number(props.technique) * Number(type === 'rank' ? props.rankBonus / 1000 : props.areaBonus / 100));
-  return bonus;
-}
-
-const getStaminaBonus = (props: IPTSValue, type: string) => {
-  const bonus = Math.floor(Number(props.stamina) * Number(type === 'rank' ? props.rankBonus / 1000 : props.areaBonus / 100));
-  return bonus;
-}
-
-const getBonus = (props: IPTSValue, type: string) => {
-  const bonus = getPerformanceBonus(props, type) + getTechniqueBonus(props, type) + getStaminaBonus(props, type);
-  return bonus;
-}
+// const getPerformanceBonus = (props: IPTSValue, type: string) => {
+//   const bonus = Math.floor(Number(props.performance) * Number(type === 'rank' ? props.rankBonus / 1000 : props.areaBonus / 100));
+//   return bonus;
+// }
